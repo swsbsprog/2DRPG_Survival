@@ -6,6 +6,7 @@ public class FlipByDirectionX : MonoBehaviour
 {
     SpriteRenderer sp;
     IMover mover;
+    public bool defaultDirection = true;
     void Start()
     {
         sp = GetComponentInChildren<SpriteRenderer>();
@@ -16,9 +17,9 @@ public class FlipByDirectionX : MonoBehaviour
     {
         //방향에 따라서 sp를 플립하자.
         if (mover.DirectionX < 0)
-            sp.flipX = true;
+            sp.flipX = defaultDirection;
         else if (mover.DirectionX > 0)
-            sp.flipX = false;
+            sp.flipX = !defaultDirection;
     }
 }
 

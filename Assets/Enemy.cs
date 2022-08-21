@@ -32,7 +32,7 @@ public class Enemy : Attackedable
         for (int i = 0; i < dropCount; i++)
         {
             var dropItem = dropItems.OrderBy(x => Random.Range(0, x.ratio))
-                .Last().dropItem;
+                .Last().dropGo;
 
             var newDropItem = Instantiate(dropItem);
             newDropItem.transform.position = transform.position
@@ -44,6 +44,6 @@ public class Enemy : Attackedable
 [System.Serializable]
 public class DropRatio
 {
-    public DropItem dropItem;
+    public GameObject dropGo;
     public float ratio;
 }

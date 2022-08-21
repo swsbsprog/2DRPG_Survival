@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 3106456540066781528}
   - component: {fileID: 658247550185055428}
   - component: {fileID: 3130340075674783475}
+  - component: {fileID: 687802669}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -155,15 +156,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2
   dieDelay: 0.5
+  AttackedDelay: 0.1
+  power: 1
   dropItems:
-  - dropItem: {fileID: 2549426279392685627, guid: dcd86c96f67828842ac9e6e64f2d9162, type: 3}
+  - dropGo: {fileID: 3697489549788541356, guid: dcd86c96f67828842ac9e6e64f2d9162, type: 3}
     ratio: 0.2
-  - dropItem: {fileID: 3980017871843498232, guid: ed0b2e4921bb25046bd2d10ee4a89cc4, type: 3}
+  - dropGo: {fileID: 8865118249441607413, guid: ed0b2e4921bb25046bd2d10ee4a89cc4, type: 3}
     ratio: 1
   minDropCount: 0
   maxDropCount: 3
   dropRange: 1
-  AttackedDelay: 0.1
 --- !u!114 &3106456540066781528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,3 +209,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &687802669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106456540066781526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5588c6bf07b6a334a95ce5c9b4854c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDirection: 1

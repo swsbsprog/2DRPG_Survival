@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5588c6bf07b6a334a95ce5c9b4854c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDirection: 1
 --- !u!114 &2832460825061955479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,11 +156,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  dieDelay: 0.5
+  AttackedDelay: 0.1
   point: 0
   hpText: {fileID: 0}
   pointText: {fileID: 0}
-  dieDelay: 0.5
-  AttackedDelay: 0.1
 --- !u!54 &2717139171270584078
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -394,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3762996428900247536
 Transform:
   m_ObjectHideFlags: 0
@@ -422,7 +423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03d293250f7ca84e827ed045ab397f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3106456540066781531, guid: 20ceb1e842bd100478c977787a78a16f, type: 3}
+  spawnEnemy:
+  - dropGo: {fileID: 1780891097146581903, guid: e93ebcbd266aa3040b4c295c5a202c92, type: 3}
+    ratio: 1
+  - dropGo: {fileID: 3106456540066781526, guid: 20ceb1e842bd100478c977787a78a16f, type: 3}
+    ratio: 3
   interval: 1
   distance: 10
 --- !u!1 &9109736427618912655
