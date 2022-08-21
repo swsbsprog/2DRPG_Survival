@@ -7,11 +7,19 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    public int power = 1;
     public int hp = 3;
     Animator animator;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Player player = other.GetComponent<Player>();
+        if (player == null)
+            return;
+        player.SetDamage(power);
     }
     internal void SetDamage(int power)
     {
