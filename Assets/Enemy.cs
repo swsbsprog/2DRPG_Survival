@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -31,17 +32,23 @@ public class Enemy : MonoBehaviour
         DropItem();
     }
 
-    public List<DropItem> dropItem;
+    public List<DropRatio> dropItems;
+    public int minDropCount = 0;
+    public int maxDropCount = 3;
     public float dropRange = 1;
     private void DropItem()
     {
-        dropItem.ForEach(item =>
+        int dropCount = Random.Range(minDropCount, maxDropCount);
+        for (int i = 0; i < dropCount; i++)
         {
-            var newDropItem = Instantiate(item);
+            var dropItem = dropItems.OrderBy(x => Random.Range(0, x.ratio))
+                .Last().dropItem;
+
+            var newDropItem = Instantiate(dropItem);
             newDropItem.transform.position = transform.position
-            + new Vector3(Random.Range(0, dropRange) 
+            + new Vector3(Random.Range(0, dropRange)
             , 0, Random.Range(0, dropRange));
-        });
+        }
     }
 
     public float AttackedDelay = 0.1f;
@@ -54,4 +61,10 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(AttackedDelay);
         sp.color = Color.white;
     }
+}
+[System.Serializable]
+public class DropRatio
+{
+    public DropItem dropItem;
+    public float ratio;
 }
