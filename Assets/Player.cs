@@ -4,16 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Player : Attackedable
 {
     public static Player Instance;
-    Animator animator;
-    void Awake()
+    new void Awake()
     {
+        base.Awake();
         Instance = this;
-        animator = GetComponentInChildren<Animator>();
     }
-    public int hp;
     public int point;
     public Text hpText;
     public Text pointText;
@@ -26,35 +24,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    internal void SetDamage(int power)
+    protected override void OnDie()
     {
-        hp -= power;
-
-        if (hp > 0)
-            StartCoroutine(AttackedCo());
-        else
-            StartCoroutine(DieCo());
+        // todo:움직이지 못하게 하기.
+        // 게임 종료 UI표시.
     }
-
-    public float dieDelay = 0.5f;
-    private IEnumerator DieCo()
-    {
-        animator.Play("Die");
-        yield return new WaitForSeconds(dieDelay);
-        Destroy(gameObject);
-    }
-
-    public float AttackedDelay = 0.1f;
-    private IEnumerator AttackedCo()
-    {
-        animator.Play("Attacked");
-        // 잠시 붉어 졌다가 원래색으로 되돌리자.
-        SpriteRenderer sp = animator.GetComponent<SpriteRenderer>();
-        sp.color = Color.red;
-        yield return new WaitForSeconds(AttackedDelay);
-        sp.color = Color.white;
-    }
-
     private void AddPoint(int amount)
     {
         point += amount;
