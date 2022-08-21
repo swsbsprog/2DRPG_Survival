@@ -9,7 +9,6 @@ public class KeyboardMove : MonoBehaviour, IMover
     public Vector3 moveDirection;
     Animator animator;
 
-
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
