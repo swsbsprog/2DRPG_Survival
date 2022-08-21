@@ -153,6 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3f07d490b707e4fb1007f9259a1554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 1111
+  dieDelay: 0.5
+  dropItem:
+  - {fileID: 2549426279392685627, guid: dcd86c96f67828842ac9e6e64f2d9162, type: 3}
+  - {fileID: 3980017871843498232, guid: ed0b2e4921bb25046bd2d10ee4a89cc4, type: 3}
+  AttackedDelay: 0.1
 --- !u!114 &3106456540066781528
 MonoBehaviour:
   m_ObjectHideFlags: 0

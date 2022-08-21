@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -27,6 +28,20 @@ public class Enemy : MonoBehaviour
         animator.Play("Die");
         yield return new WaitForSeconds(dieDelay);
         Destroy(gameObject);
+        DropItem();
+    }
+
+    public List<DropItem> dropItem;
+    public float dropRange = 1;
+    private void DropItem()
+    {
+        dropItem.ForEach(item =>
+        {
+            var newDropItem = Instantiate(item);
+            newDropItem.transform.position = transform.position
+            + new Vector3(Random.Range(0, dropRange) 
+            , 0, Random.Range(0, dropRange));
+        });
     }
 
     public float AttackedDelay = 0.1f;

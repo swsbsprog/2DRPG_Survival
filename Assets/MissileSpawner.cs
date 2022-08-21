@@ -16,6 +16,7 @@ public class MissileSpawner : MonoBehaviour
             // 가장 가까이 있는 적에게 미사일을 바라보자.
             var myPos = transform.position;
             var nearnestEnemy = enemies
+                .Where(x => x.hp > 0)
                 .OrderBy(x => Vector3.Distance(x.transform.position, myPos))
                 .FirstOrDefault();
             if (nearnestEnemy != null)
