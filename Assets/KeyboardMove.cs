@@ -29,6 +29,6 @@ public class KeyboardMove : MonoBehaviour, IMover
                 moveDirection * Time.deltaTime * speed);
         }
 
-        animator.SetBool("move", moveDirection.sqrMagnitude > 0);
+        //animator.SetBool("move", moveDirection.sqrMagnitude > 0);
     }
 }
