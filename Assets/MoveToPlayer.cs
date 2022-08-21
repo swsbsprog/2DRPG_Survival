@@ -6,6 +6,7 @@ public class MoveToPlayer : MonoBehaviour, IMover
 {
     float IMover.DirectionX => direction.x;
     public float speed = 2;
+    public float acceleration = 0;
     Vector3 direction;
     void Update()
     {
@@ -14,6 +15,8 @@ public class MoveToPlayer : MonoBehaviour, IMover
         direction.y = 0;
         direction.Normalize();
 
-        transform.Translate(speed * Time.deltaTime * direction);
+        speed += acceleration * Time.deltaTime;
+        transform.Translate(speed * Time.deltaTime * direction
+            , Space.World);
     }
 }
